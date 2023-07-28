@@ -123,15 +123,18 @@ class Tree
      {
           // Your code here
            ArrayList<Integer> ans =new ArrayList<>();
-           print(root,ans,k);
+           solve(root,ans,k);
            return ans;
      }
-     static void print(Node root,ArrayList<Integer> ans, int k ){
-           if(root==null) return ;
-           if(k==0) ans.add(root.data);
-           else{
-               print(root.left,ans,k-1);
-               print(root.right,ans,k-1);
-           }
+    void solve(Node root,ArrayList<Integer> ans, int k ){
+        if(root==null) return;
+        if(k==0)  ans.add(root.data);
+        else{
+            solve(root.left,ans,k-1);
+            solve(root.right,ans,k-1);
+            
+        }
+    
+
      }
 }
