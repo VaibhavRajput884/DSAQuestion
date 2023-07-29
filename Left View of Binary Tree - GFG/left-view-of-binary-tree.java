@@ -123,23 +123,22 @@ class Node
 class Tree
 {
     //Function to return list containing elements of left view of binary tree.
-    
     ArrayList<Integer> leftView(Node root)
     {
       // Your code here
-      ArrayList<Integer> list=new ArrayList<>();
-      solve(root,list,0);
-      return list;
+      ArrayList<Integer> ans=new ArrayList<>();
+      solve(root,0,ans);
+      return ans;
     }
-   
-    static void solve(Node root,ArrayList<Integer> list, int level){
+    static int maxl=0;
+    static void solve(Node root, int k,ArrayList<Integer> ans){
         if(root==null) return ;
-        if(level==list.size()){
-            list.add(root.data);
-            
-        }
-        solve(root.left,list,level+1);
-        solve(root.right,list,level+1);
+        if(ans.size()==k) {
+           ans.add(root.data) ;
+         }
+        solve(root.left,k+1,ans);
+        solve(root.right,k+1,ans);
+        
         
     }
 }
