@@ -39,11 +39,10 @@ class Solution {
     public static long pairWithMaxSum(long arr[], long N)
     {
         // Your code goes here
-        long max=0,sum=0;
-        for(int i=0;i<N-1;i++){
+        long sum=0, max=0;
+        for(int i =0;i<N-1;i++){
             sum=arr[i]+arr[i+1];
             max=Math.max(max,sum);
-            
         }
         return max;
     }
