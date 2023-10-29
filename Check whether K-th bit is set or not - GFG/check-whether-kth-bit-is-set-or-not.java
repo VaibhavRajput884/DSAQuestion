@@ -15,8 +15,22 @@ class CheckBit
     static boolean checkKthBit(int n, int k)
     {
         // Your code here
-        return ((n&(1<<k))==0)?false:true;
+     if (k < 0 || k >= 32) {
+            
+            return false; 
+        }
+
+        String binaryString = Integer.toBinaryString(n);
+        int bitPosition = binaryString.length() - 1 - k;
+
+        if (bitPosition < 0) {
+            
+            return false;
+        }
+
+        return binaryString.charAt(bitPosition) == '1';
     }
+
     
 }
 
