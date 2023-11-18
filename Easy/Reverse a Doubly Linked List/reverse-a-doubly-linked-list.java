@@ -87,21 +87,26 @@ class Node
 }
 
 */
-public static Node reverseDLL(Node head)
+public static Node reverseDLL(Node  head)
 {
-    if(head==null || head.next==null)return head;
-    
-    Node cur=head;
-    Node temp=head;
-    while(cur!=null){
-         temp=cur.prev;
-         cur.prev=cur.next;
-         cur.next=temp;
-         cur=cur.prev;
+    Node p = head;
+    Node temp = null;
+    while(p!=null){
+        
+        temp = p.next;
+        
+        //just swap the pointer
+        Node left = p.prev;
+        p.prev = p.next;
+        p.next = left;
+        if(temp == null){
+            break;
+        }
+        p = temp;
     }
-    if(temp!=null) temp=temp.prev;
-    return temp;
+    return p;
 }
+
 
 //{ Driver Code Starts.
 
